@@ -12,12 +12,13 @@ const allAvos = async (request: NextApiRequest,response: NextApiResponse) => {
 
 //ahora busco el item relacionado 
 
-    const entry = await db.getById(id as string )
+    const avo = await db.getById(id as string )
 
 //lo envío
     response.statusCode = 200
     response.setHeader('Content-Type', 'application/json')
-response.end(JSON.stringify({data: entry}));
+// response.end(JSON.stringify({data: entry}));//es lo mismo 
+response.status(200).json(avo)
 }
 
 //se puede crear una carpeta , por eje avo porque tiene mas rutas 
